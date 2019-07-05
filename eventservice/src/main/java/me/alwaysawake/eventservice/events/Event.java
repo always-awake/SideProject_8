@@ -5,7 +5,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Builder @AllArgsConstructor @NoArgsConstructor
-@Getter @Setter @EqualsAndHashCode(of="id")
+@Getter @Setter @EqualsAndHashCode
 public class Event {
 
     private Long id;
