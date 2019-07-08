@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest
+@WebMvcTest // 슬라이스 테스트이기 때문에 웹용 Bean들만 컨테이너에 등록해준다. 때문에 Repository를 Bean으로 등록해주지 않는다.
 public class EventControllerTest {
 
     @Autowired
@@ -29,7 +29,7 @@ public class EventControllerTest {
     @Autowired
     ObjectMapper objectMapper;
 
-    @MockBean
+    @MockBean // Repository를 Mock 객체로 만들 수 있다. -> Repository는 Mock 객체이기 때문에 save() 이후에는 null이 리턴된다.
     EventRepository eventRepository;
 
     @Test
@@ -47,7 +47,8 @@ public class EventControllerTest {
                 .location("NAVER 그린 팩토리")
                 .build();
 
-        event.setId(10L);
+        // 실제 DB에 데이터를 저장하는 경우에는 id는 자동 생성, 생성된 객체 리턴해줌. 즉, 아래와 같은 작업을 해주지 않아도 된다.
+        event.setId(1L);
         Mockito.when(eventRepository.save(event)).thenReturn(event);
 
         // 입력값들을 전달하면, JSON 응답으로 201이 나오는지 확인.

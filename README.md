@@ -28,3 +28,5 @@
         +  스프링 부트를 사용할 때, Mapping jackson json이 의존성으로 들어가 있을 경우에 ObjectMapper가 자동으로 Bean으로 등록된다. 
         + 따라서, ObjectMapper를 자동주입(@Autowired)하여 사용할 수 있다.
         + ObjectMapper는 객체를 Json 문자열로 변환시켜 준다.
+
+##11. Event 생성 API 구현: EventRespository 구현
