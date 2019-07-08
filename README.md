@@ -1,7 +1,7 @@
 스프링 부트로 REST API 구현
 =======================
 
-## 09. Event 생성 API 구현
+## Event 생성 API 구현
 ### 스프링 부트 슬라이스 테스트
 * @WebMvcTest
     - **MockMvc 빈**을 자동 설정 해준다. 따라서 빈을 그냥 가져와서 쓰면 된다.
@@ -74,4 +74,7 @@
     - BindingResult는 항상 @Valid 바로 다음 인자로 사용해야 한다. (스프링 MVC)
         + 검증을 수행한 결과를 @Valid 애노테이션을 사용한 객체 오른쪽에 있는 객체(BindingResult 타입 또는 Errors 타입)에 넣어준다.
     - @NotNull, @NotEmpty, @Min, @Max 등을 사용해서 입력값을 바인딩할 때 에러를 확인할 수 있다. 
+* 도메인 Validator 만들기
+    - @Valid와 BindingResult로는 Bad Request로 처리할 수 없을 경우 도메인 Validator을 이용해 더욱 섬세하게 처리해준다.
+    - Validator 인터페이스 사용하기 (인터페이스를 사용하지 않고 만들어도 상괍없음)
     
