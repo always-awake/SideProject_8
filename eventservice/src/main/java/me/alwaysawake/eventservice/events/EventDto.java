@@ -1,17 +1,15 @@
 package me.alwaysawake.eventservice.events;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Builder @AllArgsConstructor @NoArgsConstructor // 자바빈 규약을 지키기 위해 기본 생성자와 AllArgs 생성자를 만들어 준다.
-@Getter @Setter @EqualsAndHashCode(of = "id")
-@Entity
-public class Event {
+@Data @Builder @NoArgsConstructor @AllArgsConstructor
+public class EventDto {
 
-    @Id @GeneratedValue
-    private Long id;
     private String name;
     private String description;
     private LocalDateTime beginEnrollmentDateTime;
@@ -22,9 +20,5 @@ public class Event {
     private int basePrice; // optional
     private int maxPrice; // optional
     private int limitOfEnrollment;
-    private boolean offline;
-    private boolean free;
-    @Enumerated(EnumType.STRING)
-    private EventStatus eventStatus = EventStatus.DRAFT;
 
 }
