@@ -77,4 +77,3 @@
 * 도메인 Validator 만들기
     - @Valid와 BindingResult로는 Bad Request로 처리할 수 없을 경우 도메인 Validator을 이용해 더욱 섬세하게 처리해준다.
     - Validator 인터페이스 사용하기 (인터페이스를 사용하지 않고 만들어도 상괍없음)
-    
