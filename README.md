@@ -59,3 +59,9 @@
     - 모든 Bean들이 스프링 컨테이너에 등록된다.
         + @SpringBootApplication 애노테이션이 있는 곳을 찾아서, 그 곳부터 모든 Bean들을 등록해준다.
     - 애플리케이션을 실제 실행했을 때와 가장 유사한 형태로 테스트가 가능하다.
+
+## 13. Event 생성 API 구현: 입력값 이외에 에러 발생
+* 입력을 원하지 않은 프로퍼티의 데이터가 들어올 경우 에러를 발생시켜 준다.
+* ObjectMapper 커스터마이징을 통해 구현 가능 (ObjectMapper를 다양하게 커스터마이징 할 수 있다.)
+    - application.properties에 **spring.jackson.deserialization.fail-on-unknown-properties=true
+** 입력
