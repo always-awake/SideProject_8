@@ -87,7 +87,16 @@ public class EventControllerTest {
                 .accept(MediaTypes.HAL_JSON) // Accept 헤더: 나는 HAL_JSON 형식의 응답을 원한다.
                 .content(objectMapper.writeValueAsString(event))) // Event 객체를 Json 문자열로 바꾸어 요청 본문에 넣어줌
                 .andDo(print())
-                .andExpect(status().isBadRequest()) // 상태코드 400
-        ;
+                .andExpect(status().isBadRequest()); // 상태코드 400
+    }
+
+    @Test
+    public void createEvent_Bad_Request_Empty_Input_Test() throws Exception {
+        EventDto eventDto = EventDto.builder().build();
+
+        this.mockMvc.perform(post("/events")
+                    .contentType(MediaType.APPLICATION_JSON_UTF8)
+                    .content(this.objectMapper.writeValueAsString(eventDto))) // 요청
+                .andExpect(status().isBadRequest());
     }
 }
